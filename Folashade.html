@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HBDtoU</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #ffe0f0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #ff4081;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .cake {
+            width: 200px;
+            height: auto;
+        }
+        .message {
+            font-size: 20px;
+            margin-top: 20px;
+            color: #333;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        #countdown {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff4081;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Birthday, Folashade! 🎉🎂</h1>
+        <img class="cake" src="" alt="Birthday Cake">
+        <p class="message">Wishing you joy, love, and all the happiness in the world on your special day!</p>
+        <div id="countdown"></div>
+        <button class="button" onclick="alert('Happy Birthday Folashade! 🎊🎈')">Click for a Surprise!</button>
+    </div><script>
+    function updateCountdown() {
+        const nigeriaTimeOffset = 1 * 60 * 60 * 1000; // UTC+1
+        const now = new Date().getTime();
+        const birthday = new Date(new Date().getFullYear(), 3, 2, 0, 0, 0).getTime() - nigeriaTimeOffset; // April 2nd
+        const difference = birthday - now;
+
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById('countdown').innerHTML = `Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+        if (difference < 0) {
+            document.getElementById('countdown').innerHTML = "Happy Birthday, Folashade! 🎉";
+        }
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+</script>
+
+</body>
+</html>
